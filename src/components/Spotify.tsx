@@ -6,11 +6,11 @@ export const DISCORD_ID = "160189333507145728";
 
 export function Spotify() {
     const {data: user} = useLanyard(DISCORD_ID);
-    const c = 'pr-6 text-slate-400 text-right text-sm select-none sm:select-text inline-flex rounded-sm focus:outline-none focus:opacity-100 focus:ring items-center space-x-2 no-underline hover:text-sky-500';
+    const c = 'px-5 py-3 text-slate-400 text-right text-sm select-none sm:select-text inline-flex rounded-sm focus:outline-none focus:opacity-100 focus:ring items-center space-x-2 no-underline min-w-100 hover:bg-white/10 rounded-full';
     if (!user || !user.spotify) {
         return (
 	<p className={c}>
-		<span>Not playing anything</span>
+		<span className="overflow-hidden">Not playing anything</span>
 		<span>
 			<SiSpotify />
 		</span>

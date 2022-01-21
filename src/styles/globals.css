@@ -1,5 +1,12 @@
 html {
     font-family: 'Roboto', sans-serif;
     @apply text-white;
-    @apply bg-slate-900;
+}
+
+body {
+    @apply bg-gradient-to-tr from-slate-900 to-black;
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
