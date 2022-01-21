@@ -1,7 +1,9 @@
 import React, {ReactNode} from 'react';
+import Image from "next/image";
 import type {NextPage} from 'next';
 import type {IconType} from 'react-icons';
 import {
+	SiGithub,
 	SiGit,
 	SiPython,
 	SiJava,
@@ -18,18 +20,20 @@ import {
 	SiYarn,
 } from 'react-icons/si';
 import {age} from "../utils/time";
+import flow from "../../public/flow.jpeg";
 
 const Home: NextPage = () => (
 	<div>
 		<WhoAmI/>
 		<WhatImDoing />
+		<Projects />
 		<Technologies />
 	</div>
 	);
 
 const WhoAmI = () => (
 	<div className="mb-10">
-		<h1 className="mb-5 text-4xl font-bold">
+		<h1 className="mb-3 text-5xl font-bold">
 			Hey, I'm{' '}
 			<span className="text-sky-500 underline">Nickholas</span>!
 		</h1>
@@ -42,7 +46,7 @@ const WhoAmI = () => (
 
 const WhatImDoing = () => (
 	<div className="mb-10">
-		<h1 className="mb-5 text-4xl font-bold">What I'm doing</h1>
+		<h1 className="mb-3 text-3xl font-bold">What I'm doing</h1>
 		<p className="leading-relaxed opacity-80">I'm currently studying at{" "}
 			<a href="https://www.csulb.edu/" className="text-slate-400 underline">California State University, Long Beach</a>{" "}
 			and am in the process of earning my Bachelor's degree in Computer Science. I'm also working at{" "}
@@ -54,10 +58,61 @@ const WhatImDoing = () => (
 	</div>
 );
 
+const Projects = () => {
+	const privateProjects = ['Flow', 'Social Monitors'];
+	const publicProjects = ['personal-site'];
+	return (
+		<div className="mb-10">
+			<div className="mb-3">
+				<h1 className="mb-3 text-3xl font-bold">Projects</h1>
+				<p className="leading-relaxed opacity-80">Some of my current and past projects. For those that are private, you can read more about them in my{" "}
+					<a href="/devlog" className="text-slate-400 underline">
+						Devlog
+					</a>!
+				</p>
+			</div>
+			<div className="grid grid-cols-2 gap-3">
+				{privateProjects.map(title => (
+					<PrivateProject key={title} title={title} />
+				))}
+				{publicProjects.map(title => (
+					<PublicProject key={title} title={title} />
+				))}
+			</div>
+		</div>
+);
+	};
+
+const PrivateProject = ({title}: {title: string}) => (
+	<div className="bg-gradient-to-tr from-white/5 to-slate-400/5 rounded-lg border border-white/10">
+		<button type="button" className="flex items-center py-4 px-5 font-bold">
+			<div className="flex flex-1 items-center w-full text-left">
+				<div className="w-8 h-8"><Image className="rounded-lg" src={flow} alt="flow-img" /></div>
+				<span className="pl-3">{title}</span>
+			</div>
+			{/* <FaArrowRight className="w-5 h-5 text-slate-400" /> */}
+		</button>
+	</div>
+);
+
+const PublicProject = ({title}: {title: string}) => (
+	<div className="bg-gradient-to-tr from-white/5 to-slate-400/5 rounded-lg border border-white/10">
+		<button type="button" className="flex items-center py-4 px-5 font-bold">
+			<div className="flex flex-1 items-center w-full text-left">
+				<SiGithub className="w-8 h-8 text-slate-400" />
+				<span className="pl-3">{title}</span>
+				<span className="pl-3">⭐</span>
+				<span className="pl-3 font-normal">3</span>
+			</div>
+			{/* <FaArrowRight className="w-5 h-5 text-slate-400" /> */}
+		</button>
+	</div>
+);
+
 const Technologies = () => (
 	<div>
-		<div className="mb-5">
-			<h1 className="mb-5 text-4xl font-bold">Technologies</h1>
+		<div className="mb-3">
+			<h1 className="mb-3 text-3xl font-bold">Technologies</h1>
 			<p className="leading-relaxed opacity-80">I use a wide variety of technologies to aid me in building efficient software, as well as to{" "}
 				help overcome obstacles I face along the way. I find learning new things enjoyable and it's what helps me stay driven and motivated as a developer.
 			</p>
