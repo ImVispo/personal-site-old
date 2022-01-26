@@ -58,16 +58,6 @@ function Nav() {
 					<span className="sr-only">GitHub Profile</span>
 				</a>
 				<a
-					href="https://twitter.com/notvispo"
-					target="_blank"
-					rel="noreferrer"
-					aria-label="GitHub Profile"
-					className="py-3 px-5 hover:bg-slate-800 rounded-full"
-				>
-					<SiTwitter className="w-5 h-5 text-slate-400" />
-					<span className="sr-only">GitHub Profile</span>
-				</a>
-				<a
 					href="https://www.linkedin.com/in/nickholas-boboaca-990231162"
 					target="_blank"
 					rel="noreferrer"
