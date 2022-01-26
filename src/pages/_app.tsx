@@ -5,7 +5,7 @@ import type {AppProps} from 'next/app';
 
 import Head from "next/head";
 
-import {SiGithub, SiTwitter, SiLinkedin} from 'react-icons/si';
+import {SiGithub, SiLinkedin} from 'react-icons/si';
 
 import {Spotify} from "../components/Spotify";
 
